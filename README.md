@@ -1,3 +1,5 @@
+CMIS202_MajorProject
+
 Description: This software is a music playlist manager. Users can create and manage playlists, add songs to them, and search for songs or artists within them.
 
 • Who are the users of the software?: The users of the music playlist manager software can be music enthusiasts, casual listeners, or anyone who wants to organize and manage their personal music collections and create customized playlists.

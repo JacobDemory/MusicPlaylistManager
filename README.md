@@ -8,9 +8,7 @@ Description: This software is a music playlist manager. Users can create and man
 
 • Where and when will the software be used?: The music playlist manager software can be used on personal computers or laptops by individuals at any time they desire to curate and manage their music playlists.
 
-• How does the software work?:
-
-Upon launching the application, the user is presented with a user-friendly GUI where they can interact with the software.
+• How does the software work?: Upon launching the application, the user is presented with a user-friendly GUI where they can interact with the software.
 The user is provided with options to create a new playlist, load an existing playlist, or manage existing playlists.
 If the user chooses to create a new playlist, they can give it a name and optionally add a description.
 The new playlist is then added to the list of available playlists.

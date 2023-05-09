@@ -1,4 +1,4 @@
-CMIS202_MajorProject
+#CMIS202_MajorProject
 
 Description: This software is a music playlist manager. Users can create and manage playlists, add songs to them, and search for songs or artists within them.
 

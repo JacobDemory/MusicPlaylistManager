@@ -24,4 +24,5 @@ The software also provides a search functionality, allowing the user to search f
 Additionally, the application can offer features like shuffle play, where the songs in the playlist are played randomly, and repeat play, allowing the user to repeat the playlist continuously.
 The user can save the playlist, including all the added songs and their order, to a file. This allows them to load the playlist later or share it with others who can import it into their own music playlist manager.
 The software also provides visualization options, such as displaying album art or generating basic statistics about the playlist, like the total duration or the number of songs.
+
 • Why would anyone want to use the software over existing processes?: The software provides a centralized and user-friendly interface for managing music playlists, offering features like easy song addition, sorting, searching, and playback controls, which streamlines the process and enhances the user's ability to organize and enjoy their music collection more efficiently compared to manual methods or other existing software.

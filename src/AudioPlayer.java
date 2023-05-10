@@ -12,6 +12,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 
 @SuppressWarnings("serial")
@@ -40,6 +43,7 @@ public class AudioPlayer extends JPanel implements ActionListener
 	private boolean isLooping;
 	private JButton searchButton;
 	private JTextField searchField;
+	private JButton shuffleButton;
 
 	public AudioPlayer(MyPlaylist myPlaylist, JLabel albumLabel)
 	{
@@ -59,19 +63,24 @@ public class AudioPlayer extends JPanel implements ActionListener
 		playPauseButton.setBounds(135, 50, 60, 25);
 		add(playPauseButton);
 
+		shuffleButton = new JButton(new ImageIcon(SHUFFLE_IMAGE));
+		shuffleButton.addActionListener(this);
+		shuffleButton.setBounds(10, 125, 60, 25);
+		add(shuffleButton);
+
 		loopButton = new JButton(new ImageIcon(LOOP_IMAGE));
 		loopButton.addActionListener(this);
-		loopButton.setBounds(10, 125, 60, 25);
+		loopButton.setBounds(80, 125, 60, 25);
 		add(loopButton);
 
-		searchField = new JTextField("Track Title");
+		searchField = new JTextField();
 
-		searchField.setBounds(110, 125, 100, 25);
+		searchField.setBounds(150, 125, 80, 25);
 		add(searchField);
 
 		searchButton = new JButton("Search");
 		searchButton.addActionListener(this);
-		searchButton.setBounds(220, 125, 100, 25);
+		searchButton.setBounds(240, 125, 90, 25);
 		add(searchButton);
 
 		Image icon2 = (new ImageIcon(getClass().getResource("/images/forward.png"))).getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
@@ -227,6 +236,33 @@ public class AudioPlayer extends JPanel implements ActionListener
 		{
 			searchTracks();
 		}
+
+		else if (currentSource == shuffleButton)
+		{
+			shuffleTracks();
+		}
+	}
+
+
+
+	private void shuffleTracks() {
+		MyPlaylist currentPlayList = getPlayList();
+		if (currentPlayList != null) {
+			Track[] currentTracks = currentPlayList.getTrackArray();
+			Track[] shuffled = shuffle(currentTracks);
+			currentPlayList.updateTracks(shuffled);
+			updateList(currentPlayList);
+		}
+
+	}
+
+
+	private Track[] shuffle(Track[] currentTracks) {
+		Track[] shuffled = new Track[currentTracks.length];
+		List<Track> tList = Arrays.asList(currentTracks);
+		Collections.shuffle(tList);
+		tList.toArray(shuffled);
+		return shuffled;
 	}
 
 

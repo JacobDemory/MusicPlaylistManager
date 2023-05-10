@@ -16,14 +16,14 @@ public class MyHashTable<K, V> {
 			buckets.add(null);
 	}
 
-	public int size() { 
-		return size; 
+	public int size() {
+		return size;
 	}
-	
-	public boolean isEmpty() { 
-		return size() == 0; 
+
+	public boolean isEmpty() {
+		return size() == 0;
 	}
-	
+
 	private final int getHash (K key) {
 		return Objects.hashCode(key);
 	}
@@ -42,7 +42,7 @@ public class MyHashTable<K, V> {
 		int hash = getHash(key);
 		Node<K, V> topNode = buckets.get(bucketId);
 		Node<K, V> prevNode = null;
-		
+
 		while (topNode != null) {
 			if (topNode.key.equals(key) && hash == topNode.hash)
 				break;
@@ -68,7 +68,7 @@ public class MyHashTable<K, V> {
 	{
 		int bucketId = getIndex(key);
 		int hash = getHash(key);
-	
+
 		Node<K, V> topNode = buckets.get(bucketId);
 
 		while (topNode != null) {
@@ -97,7 +97,7 @@ public class MyHashTable<K, V> {
 		size++;
 		topNode = buckets.get(bucketId);
 		Node<K, V> tempNode
-			= new Node<K, V>(key, value, hash);
+				= new Node<K, V>(key, value, hash);
 		tempNode.next = topNode;
 		buckets.set(bucketId, tempNode);
 

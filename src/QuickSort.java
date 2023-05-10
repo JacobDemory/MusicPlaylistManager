@@ -6,13 +6,13 @@ public class QuickSort
 	}
 
 	int compareByArtist(Track t1, Track t2) {
-		return t1.getArtist().compareTo(t2.getArtist()); 
+		return t1.getArtist().compareTo(t2.getArtist());
 	}
 
 	int compareByTitle(Track t1, Track t2) {
-		return t1.getTitle().compareTo(t2.getTitle()); 
+		return t1.getTitle().compareTo(t2.getTitle());
 	}
-	
+
 	int compareByDuration(Track o1, Track o2) {
 		if (o2.getDuration() < o1.getDuration()) {
 			return 1;
@@ -35,13 +35,13 @@ public class QuickSort
 		else {
 			return compareByDuration(t1, t2);
 		}
-		
+
 	}
-	
+
 	private int partition(Track array[], int start, int end)
 	{
 		Track pivotElement = array[end];
-		int i = (start-1); 
+		int i = (start-1);
 		for (int j=start; j<end; j++)
 		{
 			if (compare(array[j],pivotElement) <=0)
@@ -70,4 +70,3 @@ public class QuickSort
 		}
 	}
 }
-

@@ -15,8 +15,8 @@ public class Track
 	private String artistStr;
 	private String albumStr;
 	private long duration;
-	
-	
+
+
 	public Track(String path) throws FileNotFoundException
 	{
 		this.trackFile = new File(path);
@@ -25,17 +25,17 @@ public class Track
 			Mp3File track = new Mp3File(this.getTrackFile().getAbsolutePath());
 			if (track.hasId3v2Tag())
 			{
-			     ID3v2 id3v2Obj = track.getId3v2Tag();
-			     this.titleStr = id3v2Obj.getTitle();
-			     this.artistStr = id3v2Obj.getArtist();
-			     this.albumStr = id3v2Obj.getAlbum();
-			     this.duration = track.getLengthInSeconds();
-		         byte[] imgData = id3v2Obj.getAlbumImage();
-		         if (imgData != null)
-		         {
-				     this.albumImage = ImageIO.read(new ByteArrayInputStream(imgData));
-		         }
-			}					
+				ID3v2 id3v2Obj = track.getId3v2Tag();
+				this.titleStr = id3v2Obj.getTitle();
+				this.artistStr = id3v2Obj.getArtist();
+				this.albumStr = id3v2Obj.getAlbum();
+				this.duration = track.getLengthInSeconds();
+				byte[] imgData = id3v2Obj.getAlbumImage();
+				if (imgData != null)
+				{
+					this.albumImage = ImageIO.read(new ByteArrayInputStream(imgData));
+				}
+			}
 		}
 		catch (FileNotFoundException e)
 		{
@@ -49,7 +49,7 @@ public class Track
 		this.artistStr = (this.artistStr == null) ? "unknown artist" : this.artistStr;
 		this.albumStr = (this.albumStr == null) ? "unknown album" : this.albumStr;
 	}
-	
+
 	public String getArtist()
 	{
 		return this.artistStr;
@@ -66,12 +66,12 @@ public class Track
 		return this.duration;
 	}
 
-	
+
 	public BufferedImage getAlbumArt()
 	{
 		return this.albumImage;
 	}
-	
+
 	public String getAlbum()
 	{
 		return this.albumStr;
@@ -121,6 +121,6 @@ public class Track
 			return false;
 		return true;
 	}
-	
-	
+
+
 }

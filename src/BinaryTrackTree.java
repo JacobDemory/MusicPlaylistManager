@@ -1,16 +1,16 @@
 public class BinaryTrackTree {
 	TreeNode root;
-	BinaryTrackTree() 
-	{ 
-		root = null; 
+	BinaryTrackTree()
+	{
+		root = null;
 	}
 
-	BinaryTrackTree(Track value) { 
-		root = new TreeNode(value); 
+	BinaryTrackTree(Track value) {
+		root = new TreeNode(value);
 	}
 
-	void insert(Track track) { 
-		root = insertHelper(root, track); 
+	void insert(Track track) {
+		root = insertHelper(root, track);
 	}
 
 	TreeNode insertHelper(TreeNode node, Track key)
@@ -49,4 +49,3 @@ class TreeNode {
 		left = right = null;
 	}
 }
-

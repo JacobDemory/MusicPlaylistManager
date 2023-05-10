@@ -16,7 +16,7 @@ import java.util.Set;
 
 @SuppressWarnings("serial")
 public class AudioPlayer extends JPanel implements ActionListener
-{	
+{
 	private final Image SHUFFLE_IMAGE = (new ImageIcon(getClass().getResource("/images/shuffle.png"))).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
 	private final Image LOOP_IMAGE = (new ImageIcon(getClass().getResource("/images/loop.png"))).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
 	private final Image PLAY_IMAGE = (new ImageIcon(getClass().getResource("/images/play_button.png"))).getImage().getScaledInstance(12, 12, Image.SCALE_SMOOTH);
@@ -65,15 +65,15 @@ public class AudioPlayer extends JPanel implements ActionListener
 		add(loopButton);
 
 		searchField = new JTextField("Track Title");
-		
+
 		searchField.setBounds(110, 125, 100, 25);
 		add(searchField);
-		
+
 		searchButton = new JButton("Search");
 		searchButton.addActionListener(this);
 		searchButton.setBounds(220, 125, 100, 25);
 		add(searchButton);
-		
+
 		Image icon2 = (new ImageIcon(getClass().getResource("/images/forward.png"))).getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
 		skipForwardTrack = new JButton(new ImageIcon(icon2));
 		skipForwardTrack.addActionListener(this);
@@ -92,7 +92,7 @@ public class AudioPlayer extends JPanel implements ActionListener
 			{
 				MouseListener[] mouseListeners = getMouseListeners();
 				for (MouseListener l : mouseListeners)
-					removeMouseListener(l); 
+					removeMouseListener(l);
 				final BasicSliderUI baseUI = (BasicSliderUI) getUI();
 				BasicSliderUI.TrackListener tlistener = baseUI.new TrackListener()
 				{
@@ -146,7 +146,7 @@ public class AudioPlayer extends JPanel implements ActionListener
 					public void run()
 					{
 						try
-						{			                
+						{
 							refreshGUI();
 							playPauseButton.setIcon(new ImageIcon(PAUSE_IMAGE));
 							playerInstance.play();
@@ -235,13 +235,13 @@ public class AudioPlayer extends JPanel implements ActionListener
 		if (title.isEmpty() || title.isBlank()) {
 			return;
 		}
-		
+
 		BinaryTrackTree bTree = new BinaryTrackTree();
 		Track tracks[] = myPlaylist.getTrackArray();
 		for (int i=0; i<tracks.length;i++) {
 			bTree.insert(tracks[i]);
 		}
-		
+
 		TreeNode node = bTree.find(bTree.root, title);
 		if (node !=null) {
 			this.currentTrack = node.key;
@@ -295,7 +295,7 @@ public class AudioPlayer extends JPanel implements ActionListener
 
 
 	private void pauseTrack()
-	{	
+	{
 		this.playPauseButton.setIcon(new ImageIcon(PLAY_IMAGE));
 		if (playerInstance != null)
 		{
@@ -340,7 +340,7 @@ public class AudioPlayer extends JPanel implements ActionListener
 
 
 	public void splitCurrentTrackAndWriteToFile(File outputFile, boolean isToSplit)
-	{		
+	{
 		if (this.currentTrack != null)
 		{
 			try
@@ -354,7 +354,7 @@ public class AudioPlayer extends JPanel implements ActionListener
 				}
 				else
 				{
-					point1 = this.timeSlider.getValue(); 
+					point1 = this.timeSlider.getValue();
 					point2 = (int) this.totalLength;
 				}
 				currentInpStream.skip((long) point1);
@@ -436,6 +436,11 @@ public class AudioPlayer extends JPanel implements ActionListener
 		{
 			return;
 		}
+	}
+
+
+	public MyPlaylist getPlayList() {
+		return myPlaylist;
 	}
 
 }

@@ -23,7 +23,7 @@ public class BackupManager
 	private String defaultBrowDirectory;
 	private static final String FILE_NAME = "defaults.conf";
 	private String defaultDirectory;
-	
+
 	public BackupManager()
 	{
 		this.currentFile = new File(FILE_NAME);
@@ -49,53 +49,53 @@ public class BackupManager
 			}
 		}
 	}
-	
+
 	public void saveDefaultsToFile()
 	{
-        try
-        {
-            DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
-            Document document = documentBuilder.newDocument();
-            Element defElement = document.createElement("Defaults");
-            document.appendChild(defElement);
-            Element defElement1 = document.createElement("defaultBrowserDir");
-            if (this.defaultBrowDirectory != null)
-            {
-                defElement1.appendChild(document.createTextNode(this.defaultBrowDirectory));   
-            }
-            defElement.appendChild(defElement1);
-            
-            Element defDirEement = document.createElement("defaultOpenPlaylistDir");
-            
-            if (this.defaultDirectory != null)
-            {
-            	defDirEement.appendChild(document.createTextNode(this.defaultDirectory));
-            }
-            defElement.appendChild(defDirEement);
-            TransformerFactory transFactory = TransformerFactory.newInstance();
-            Transformer transObject = transFactory.newTransformer();
-            transObject.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-            DOMSource domSrc = new DOMSource(document);
-            StringWriter strWriter = new StringWriter();
-            StreamResult strResult = new StreamResult(strWriter);
-            transObject.transform(domSrc, strResult);
-            StringBuffer sbuilder = strWriter.getBuffer();
+		try
+		{
+			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
+			Document document = documentBuilder.newDocument();
+			Element defElement = document.createElement("Defaults");
+			document.appendChild(defElement);
+			Element defElement1 = document.createElement("defaultBrowserDir");
+			if (this.defaultBrowDirectory != null)
+			{
+				defElement1.appendChild(document.createTextNode(this.defaultBrowDirectory));
+			}
+			defElement.appendChild(defElement1);
+
+			Element defDirEement = document.createElement("defaultOpenPlaylistDir");
+
+			if (this.defaultDirectory != null)
+			{
+				defDirEement.appendChild(document.createTextNode(this.defaultDirectory));
+			}
+			defElement.appendChild(defDirEement);
+			TransformerFactory transFactory = TransformerFactory.newInstance();
+			Transformer transObject = transFactory.newTransformer();
+			transObject.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+			DOMSource domSrc = new DOMSource(document);
+			StringWriter strWriter = new StringWriter();
+			StreamResult strResult = new StreamResult(strWriter);
+			transObject.transform(domSrc, strResult);
+			StringBuffer sbuilder = strWriter.getBuffer();
 			PrintWriter pwriter = new PrintWriter(this.currentFile.getAbsolutePath());
 			pwriter.println(sbuilder.toString());
 			pwriter.close();
-        }
-        catch (ParserConfigurationException | TransformerException | FileNotFoundException e)
-        {
-            e.printStackTrace();
-        }
+		}
+		catch (ParserConfigurationException | TransformerException | FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	public String getDefaultDirectory()
 	{
 		return this.defaultDirectory;
 	}
-	
+
 	public void setDefaultDirectory(String directory)
 	{
 		this.defaultDirectory = directory;
@@ -105,10 +105,10 @@ public class BackupManager
 	{
 		this.defaultBrowDirectory = path;
 	}
-	
+
 	public String getDefaultBrowseDirectory()
 	{
 		return this.defaultBrowDirectory;
 	}
-	
+
 }

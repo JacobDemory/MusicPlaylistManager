@@ -54,7 +54,7 @@ public class MyPlaylist
 				NodeList mediaItem = document.getElementsByTagName("media");
 
 				for (int i = 0; i < mediaItem.getLength(); i++)
-				{										
+				{
 					Track track = new Track(mediaItem.item(i).getAttributes().getNamedItem("src").getTextContent());
 
 					this.tracks.add(track);
@@ -80,20 +80,20 @@ public class MyPlaylist
 		String result = "";
 		switch(file)
 		{
-		case WPL_STR:
-		{
-			result = this.wplParser();
-			break;
-		}
-		case AUDIO_M3U:
-		{
-			break;
-		}
-		default:
-		{
-			System.out.println("File format not supported: " + file);
-			return;
-		}
+			case WPL_STR:
+			{
+				result = this.wplParser();
+				break;
+			}
+			case AUDIO_M3U:
+			{
+				break;
+			}
+			default:
+			{
+				System.out.println("File format not supported: " + file);
+				return;
+			}
 		}
 
 		try
@@ -214,17 +214,17 @@ public class MyPlaylist
 		return this.tracks;
 	}
 
-	
+
 
 	public int getIndexOf(Track track)
 	{
 		Queue<Track> queueCopy = new ArrayDeque<Track>(tracks);
-	    for(int i=0; i < tracks.size(); i++){
-	        Track c = queueCopy.remove();
-	        if (c.equals(track)) {
-	        	return i;
-	        }
-	    }
+		for(int i=0; i < tracks.size(); i++){
+			Track c = queueCopy.remove();
+			if (c.equals(track)) {
+				return i;
+			}
+		}
 		return -1;
 	}
 
@@ -238,15 +238,15 @@ public class MyPlaylist
 		return null;
 	}
 
-	
+
 	public Track getById(int index) {
 		Queue<Track> queueCopy = new ArrayDeque<Track>(tracks);
-	    for(int i=0; i<index; i++){
-	        queueCopy.remove();
-	    }
+		for(int i=0; i<index; i++){
+			queueCopy.remove();
+		}
 		return queueCopy.peek();
 	}
-	
+
 	public Track getLast()
 	{
 		if (this.tracks.size() != 0)
@@ -297,17 +297,25 @@ public class MyPlaylist
 
 	public void remove(int id)
 	{
-		
+
 		this.tracks.remove(getById(id));
 	}
 
 	public Track[] getTrackArray() {
 		Queue<Track> queueCopy = new ArrayDeque<Track>(tracks);
 		Track array[] = new Track[tracks.size()];
-	    for(int i=0; i < tracks.size(); i++){
-	        array[i] = queueCopy.remove();
-	    }
-	    return array;
+		for(int i=0; i < tracks.size(); i++){
+			array[i] = queueCopy.remove();
+		}
+		return array;
+	}
+
+	public void updateTracks(Track[] ts) {
+		Queue<Track> queueCopy = new ArrayDeque<Track>();;
+		for (Track t : ts) {
+			queueCopy.add(t);
+		}
+		tracks = queueCopy;
 	}
 
 	/*public void swap(int index1, int index2)

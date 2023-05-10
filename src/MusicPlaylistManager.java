@@ -289,6 +289,11 @@ public class MusicPlaylistManager extends JFrame implements ActionListener {
             id++;
         }
 
+        MyPlaylist currentPlayList = audioPlayer.getPlayList();
+        if (currentPlayList != null) {
+            currentPlayList.updateTracks(tracks);
+            audioPlayer.updateList(currentPlayList);
+        }
     }
 
     public void openPlayList() {

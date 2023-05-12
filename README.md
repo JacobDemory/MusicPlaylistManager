@@ -24,3 +24,5 @@ The user can save the playlist, including all the added songs and their order, t
 The software also provides visualization options, such as displaying album art or generating basic statistics about the playlist, like the total duration or the number of songs.
 
 • Why would anyone want to use the software over existing processes?: The software provides a centralized and user-friendly interface for managing music playlists, offering features like easy song addition, sorting, searching, and playback controls, which streamlines the process and enhances the user's ability to organize and enjoy their music collection more efficiently compared to manual methods or other existing software.
+
+YouTube Video Presentation Link: https://youtu.be/_jN56H13nDE

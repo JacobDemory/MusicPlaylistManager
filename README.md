@@ -13,9 +13,9 @@ The user is provided with options to create a new playlist, load an existing pla
 If the user chooses to create a new playlist, they can give it a name and optionally add a description.
 The new playlist is then added to the list of available playlists.
 Once a playlist is created or loaded, the user can add songs to it.
-They can either manually enter the details of the song (e.g., title, artist, album) or import the song information from an online music database (such as querying an API like Last.fm).
+They must import the mp3 file of the song (was going to allow manually entering, but this made it simpler to manage the songs)
 The software allows the user to view and manage the songs within a playlist.
-They can see the song details, such as title, artist, and duration, and perform actions like removing songs, rearranging the song order, or editing the song information.
+They can see the song details, such as title, artist, and duration, and perform actions like removing songs, or rearranging the song order
 The user can also apply various sorting options to the playlist, such as sorting by title, artist, or duration.
 This helps them organize their music collection according to their preferences.
 The software also provides a search functionality, allowing the user to search for specific songs or artists within the playlist. This makes it easier to locate and play desired songs.

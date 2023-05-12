@@ -11,7 +11,6 @@ import java.awt.event.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-@SuppressWarnings("serial")
 public class MusicPlaylistManager extends JFrame implements ActionListener {
 
     private JPanel albumPanel;

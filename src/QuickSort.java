@@ -38,6 +38,8 @@ public class QuickSort
 
 	}
 
+	// Partition of data into two separate arrays allows for
+	// quicksort to work.
 	private int partition(Track array[], int start, int end)
 	{
 		Track pivotElement = array[end];
